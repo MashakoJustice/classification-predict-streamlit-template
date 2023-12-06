@@ -2,6 +2,14 @@
 
 import streamlit as st
 
+# Set custom Streamlit page configuration
+st.set_page_config(
+    page_title="Green Data Dynamics",
+    page_icon=":seedling:",  # You can use emojis as icons
+    layout="centered",  # "wide" for a wider layout
+    initial_sidebar_state="auto",  # "expanded" or "collapsed"
+)
+
 def display_contacts(company_address, company_phone, project_managers, project_team, location_url):
     st.header("Contacts Page")
 
@@ -11,10 +19,8 @@ def display_contacts(company_address, company_phone, project_managers, project_t
     # Column 1: Display the company logo
     with col1:
         st.image("https://cdn.discordapp.com/attachments/1168555810721382481/1181147881302937641/Green_Data_Dynamics_smaller.png?ex=658000af&is=656d8baf&hm=29e6071e4e2510f83dbbe910ab837534bae9a843248f9e3ad603eb41413a5715&", width=200)
-        st.image("https://cdn.discordapp.com/attachments/1176191997564964914/1180809226461917255/fcb84b01-106a-45ee-897e-bd5a82a4fd83.jpeg?ex=657ec549&is=656c5049&hm=897858b9358bd7c006d92f4b84f45f698fbbb7cd42289d6658f1ceb432c2c897&", width=200) 
-        st.image("https://cdn.discordapp.com/attachments/1176191997564964914/1181162470707052574/Signature_Pad_Sigma.jpeg?ex=65800e45&is=656d9945&hm=d93ff2125f811fc1a6fabf13a8b11330687865c97774bca60855a78cca49c68c&", width=200)# Replace with the actual path to your second logo
 
-    # Column 2: Display contact details
+    # Column 2: Display contacstt details
     with col2:
         # Display a paragraph about the company
         st.write(

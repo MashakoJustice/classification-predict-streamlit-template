@@ -7,9 +7,22 @@ import re
 import string
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from shared_layout import add_sidebar_image
 
 # Sample data (replace with your actual data)
 train_df = pd.read_csv("https://raw.githubusercontent.com/MashakoJustice/Documentatio/main/Classification/train.csv")
+
+# Set custom Streamlit page configuration
+st.set_page_config(
+    page_title="Green Data Dynamics",
+    page_icon=":seedling:",  # You can use emojis as icons
+    layout="wide",  # Use "wide" for a wider layout
+    initial_sidebar_state="auto",  # "expanded" or "collapsed"
+)
+
+# Main content
+add_sidebar_image()
+st.title("Nature Conservation Awareness App")
 
 # Function to remove URLs, convert to lowercase, remove punctuation, and remove numbers
 all_stop = set(stopwords.words('english'))
@@ -22,7 +35,8 @@ def tweet_cleaning(tweet):
 
     def clean_stopwords(tweet):
         tweet_list = [ele for ele in tweet.split()]
-        clean_tokens = [t for t in tweet_list if re.match(r'[^\W\d]*$|^RT[\s]+|https?:\/\/.*[\r\n]*', t)]
+        # Remove "rt" from the list of tokens
+        clean_tokens = [t for t in tweet_list if re.match(r'https?:\/\/.*[\r\n]*', t) or t.lower() != 'rt']
         clean_s = ' '.join(clean_tokens)
         clean_mess = [word for word in clean_s.split() if word not in all_stop]
         return clean_mess
@@ -37,6 +51,7 @@ def tweet_cleaning(tweet):
     lemmatized_tweet = lemmaiser(no_punc_tweet)
 
     return lemmatized_tweet
+
 
 # Check the actual column names in your CSV file
 # If 'sentiment' doesn't exist, replace it with the correct column name
@@ -58,18 +73,21 @@ for sentiment in wordcloud_data.keys():
 # Get the absolute path to the directory of the script
 script_directory = os.path.dirname(os.path.abspath(__file__))
 
-# App title and header
-st.title("Nature Conservation Awareness App")
+# App title and header with logo
+col1, col2 = st.columns([1, 3])  # Adjust the ratio as needed
 
 # App logo using the absolute path
 logo_path = "https://cdn.discordapp.com/attachments/1168555810721382481/1181147881302937641/Green_Data_Dynamics_smaller.png?ex=658000af&is=656d8baf&hm=29e6071e4e2510f83dbbe910ab837534bae9a843248f9e3ad603eb41413a5715&width=200"
-st.image(logo_path, caption="Your App Logo", width=200)
+col1.image(logo_path, caption="A Greener Tomorrow", width=150)  # Adjust the width as needed
+col2.title("Climate Change Awareness App")
+
 
 # Welcome message or introduction
-st.write("Welcome to our Nature Conservation Awareness App! Explore and raise awareness about global warming and environmental conservation.")
+st.header("You are either part of the solution, or you're going to be part of the problem.")
+st.write("Eldridge Cleaver - 1968")
 
 # User Interface Elements
-st.header("Explore Sentiments and Keywords")
+st.subheader("Explore Sentiments and Keywords")
 
 # Buttons for each sentiment
 selected_sentiment = st.radio("Select Sentiment:", list(wordcloud_data.keys()))
@@ -90,3 +108,14 @@ if st.button(f"Show {selected_sentiment} Word Cloud"):
         st.pyplot(plt)
     else:
         st.write(f"No data available for the '{selected_sentiment}' sentiment.")
+
+# Add YouTube links to the home page
+st.subheader("Watch And Learn, Change Your Perspective")
+st.write("Check out our videos:")
+st.markdown("[The reality of climate change | David Puttnam | TEDxDublin](https://www.youtube.com/watch?v=SBjtO-0tbKU&t=145s)")
+st.markdown("[Why I don't care about 'Climate Change' | David Saddington | TEDxTeen](https://www.youtube.com/watch?v=7vnzKPq390Q)")
+st.markdown("[A Creative Approach To Climate Change | Finnegan Harries | TEDxTeen](https://www.youtube.com/watch?v=lIJOmd-sF-c)")
+st.markdown("[Why renewables can’t save the planet | Michael Shellenberger | TEDxDanubia](https://www.youtube.com/watch?v=N-yALPEpV4w)")
+st.markdown("[Climate Change Impact on Developing Countries | Linda Bouadjel-Zebian | TEDxLosGatosHighSchool](https://www.youtube.com/watch?v=EaA6WjARS9o)")
+st.markdown("[A simple and smart way to fix climate change | Dan Miller | TEDxOrangeCoast](https://www.youtube.com/watch?v=0k2-SzlDGko)")
+st.markdown("[Climate Expert Says Man-Made Climate Change Narrative Is A LIE, Just A Scheme To Make Money](https://www.youtube.com/watch?v=CFlogpQRHfQ)")

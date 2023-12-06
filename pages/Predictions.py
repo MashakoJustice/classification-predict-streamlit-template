@@ -6,6 +6,14 @@ import os
 # Data dependencies
 import pandas as pd
 
+# Set custom Streamlit page configuration
+st.set_page_config(
+    page_title="Green Data Dynamics",
+    page_icon=":seedling:",  # You can use emojis as icons
+    layout="centered",  # "wide" for a wider layout
+    initial_sidebar_state="auto",  # "expanded" or "collapsed"
+)
+
 # Vectorizer
 news_vectorizer = open("resources/tfidfvect.pkl", "rb")
 tweet_cv = joblib.load(news_vectorizer)  # loading your vectorizer from the pkl file
