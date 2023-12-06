@@ -22,7 +22,6 @@ st.set_page_config(
 
 # Main content
 add_sidebar_image()
-st.title("Nature Conservation Awareness App")
 
 # Function to remove URLs, convert to lowercase, remove punctuation, and remove numbers
 all_stop = set(stopwords.words('english'))
@@ -73,21 +72,22 @@ for sentiment in wordcloud_data.keys():
 # Get the absolute path to the directory of the script
 script_directory = os.path.dirname(os.path.abspath(__file__))
 
-# App title and header with logo
-col1, col2 = st.columns([1, 3])  # Adjust the ratio as needed
+col1, col2, col3 = st.columns([1, 3, 1])  # Adjust the ratio as needed
 
 # App logo using the absolute path
 logo_path = "https://cdn.discordapp.com/attachments/1168555810721382481/1181147881302937641/Green_Data_Dynamics_smaller.png?ex=658000af&is=656d8baf&hm=29e6071e4e2510f83dbbe910ab837534bae9a843248f9e3ad603eb41413a5715&width=200"
 col1.image(logo_path, caption="A Greener Tomorrow", width=150)  # Adjust the width as needed
-col2.title("Climate Change Awareness App")
 
+# Title and Subtitle
+col2.title("Climate Change Awareness App")
+col2.text("Let's Predict")  # Subtitle
 
 # Welcome message or introduction
 st.header("You are either part of the solution, or you're going to be part of the problem.")
 st.write("Eldridge Cleaver - 1968")
 
 # User Interface Elements
-st.subheader("Explore Sentiments and Keywords")
+st.subheader("Key Words For Climate Change Sentiment")
 
 # Buttons for each sentiment
 selected_sentiment = st.radio("Select Sentiment:", list(wordcloud_data.keys()))
@@ -112,6 +112,10 @@ if st.button(f"Show {selected_sentiment} Word Cloud"):
 # Add YouTube links to the home page
 st.subheader("Watch And Learn, Change Your Perspective")
 st.write("Check out our videos:")
+
+# YouTube links on the left
+st.subheader("Watch And Learn, Change Your Perspective")
+st.write("Check out our videos:")
 st.markdown("[The reality of climate change | David Puttnam | TEDxDublin](https://www.youtube.com/watch?v=SBjtO-0tbKU&t=145s)")
 st.markdown("[Why I don't care about 'Climate Change' | David Saddington | TEDxTeen](https://www.youtube.com/watch?v=7vnzKPq390Q)")
 st.markdown("[A Creative Approach To Climate Change | Finnegan Harries | TEDxTeen](https://www.youtube.com/watch?v=lIJOmd-sF-c)")
@@ -119,3 +123,4 @@ st.markdown("[Why renewables can’t save the planet | Michael Shellenberger | T
 st.markdown("[Climate Change Impact on Developing Countries | Linda Bouadjel-Zebian | TEDxLosGatosHighSchool](https://www.youtube.com/watch?v=EaA6WjARS9o)")
 st.markdown("[A simple and smart way to fix climate change | Dan Miller | TEDxOrangeCoast](https://www.youtube.com/watch?v=0k2-SzlDGko)")
 st.markdown("[Climate Expert Says Man-Made Climate Change Narrative Is A LIE, Just A Scheme To Make Money](https://www.youtube.com/watch?v=CFlogpQRHfQ)")
+

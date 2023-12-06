@@ -1,14 +1,18 @@
 # contacts_app.py
 
 import streamlit as st
+from shared_layout import add_sidebar_image
 
 # Set custom Streamlit page configuration
 st.set_page_config(
     page_title="Green Data Dynamics",
     page_icon=":seedling:",  # You can use emojis as icons
-    layout="centered",  # "wide" for a wider layout
+    layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
 )
+
+# Main content
+add_sidebar_image()
 
 def display_contacts(company_address, company_phone, project_managers, project_team, location_url):
     st.header("Contacts Page")
@@ -19,6 +23,7 @@ def display_contacts(company_address, company_phone, project_managers, project_t
     # Column 1: Display the company logo
     with col1:
         st.image("https://cdn.discordapp.com/attachments/1168555810721382481/1181147881302937641/Green_Data_Dynamics_smaller.png?ex=658000af&is=656d8baf&hm=29e6071e4e2510f83dbbe910ab837534bae9a843248f9e3ad603eb41413a5715&", width=200)
+        st.image("https://cdn.discordapp.com/attachments/1176191997564964914/1181962948906860554/Protect_Earth_-_Blue_Green_Words_for_Earth__Sticker_for_Sale_by_jitterfly.jpeg?ex=6582f7c6&is=657082c6&hm=154ede3e7116b512ebbe3b003010c33f17f367239f4ec2b6eee939d5a785cadb&", width=200)# Replace with the actual path to your second logo
 
     # Column 2: Display contacstt details
     with col2:

@@ -5,14 +5,19 @@ import os
 
 # Data dependencies
 import pandas as pd
+from shared_layout import add_sidebar_image
+
 
 # Set custom Streamlit page configuration
 st.set_page_config(
     page_title="Green Data Dynamics",
     page_icon=":seedling:",  # You can use emojis as icons
-    layout="centered",  # "wide" for a wider layout
+    layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
 )
+
+# Main content
+add_sidebar_image()
 
 # Vectorizer
 news_vectorizer = open("resources/tfidfvect.pkl", "rb")

@@ -2,6 +2,7 @@
 import streamlit as st
 import joblib
 import os
+from shared_layout import add_sidebar_image
 
 # Data dependencies
 import pandas as pd
@@ -17,9 +18,12 @@ raw = pd.read_csv("https://raw.githubusercontent.com/MashakoJustice/Documentatio
 st.set_page_config(
     page_title="Green Data Dynamics",
     page_icon=":seedling:",  # You can use emojis as icons
-    layout="centered",  # "wide" for a wider layout
+    layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
 )
+
+# Main content
+add_sidebar_image()
 
 # The main function where we will build the actual app
 def main():
