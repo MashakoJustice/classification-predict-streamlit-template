@@ -10,7 +10,7 @@ from shared_layout import add_sidebar_image
 
 # Set custom Streamlit page configuration
 st.set_page_config(
-    page_title="CatBoost Predictor",
+    page_title="Support Vector Machine Predictor",
     page_icon=":seedling:",  # You can use emojis as icons
     layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
@@ -40,7 +40,7 @@ def main(selection):
 
     # Building out the prediction page
     if selection == "Prediction":
-        st.info("With Support Vector Vachine Model")
+        st.info("With Support Vector Machine Model")
         # Creating a text box for user input
         tweet_text = st.text_area("Enter Text", "")
 

@@ -2,12 +2,10 @@
 import streamlit as st
 import joblib
 import os
+import pandas as pd
 from shared_layout import add_sidebar_image
 
 # Data dependencies
-import pandas as pd
-
-# Vectorizer
 news_vectorizer = open("resources/tfidfvect.pkl", "rb")
 tweet_cv = joblib.load(news_vectorizer)  # loading your vectorizer from the pkl file
 
@@ -16,7 +14,7 @@ raw = pd.read_csv("https://raw.githubusercontent.com/MashakoJustice/Documentatio
 
 # Set custom Streamlit page configuration
 st.set_page_config(
-    page_title="Green Data Dynamics",
+    page_title="Information",
     page_icon=":seedling:",  # You can use emojis as icons
     layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
@@ -41,9 +39,20 @@ def main():
     st.subheader("Climate Change Tweet Classification")
 
     # Building out the "Information" page
-    st.info("General Information")
+    st.info("“Climate change is the greatest threat to our existence in our short history on this planet. Nobody's going to buy their way out of its effects.” – Mark Ruffalo")
     # You can read a markdown file from supporting resources folder
-    st.markdown("Some information here")
+    st.markdown("Climate change, characterized by shifts in Earth's climate patterns, is a topic of extensive scientific research and observation. The rise in global temperatures, alterations in precipitation patterns, and the increase in extreme weather events are widely attributed to human activities, particularly the emission of greenhouse gases. However, some individuals may still question the validity of global warming. In the face of compelling evidence, including temperature records, glacial melt, and changes in ecosystems, a lingering question persists: Is there genuine doubt about the reality of global warming, or is it crucial for society to collectively acknowledge and address the scientific consensus on the urgent need for climate action? This app helps us find out if one believes in the theory of climate change or not using information given to us from Twitter, see information below.")
+
+    st.subheader("Data Cleaning Process")
+    st.write("Our data was sourced from Twitter, and as we went through the data, we found that it had data like:")
+    st.write("e.g. RT @StarTalkRadio: First: The public understands climate change better than Congress. Why? #JohnHoldren @CoryBooker @neiltyson explain: htt…")
+    st.write("This data was challenging to use without any feature engineering. As a team, we agreed to clean the data by:")
+    st.write("1. Removing all URLs (e.g., http://cdn....)")
+    st.write("2. Converting all characters to lowercase (e.g., A to a)")
+    st.write("3. Removing stop words (e.g., 'a,' 'the,' 'is,' 'are')")
+    st.write("4. Lemmatizing all remaining words (e.g., 'walk' from 'walking,' 'walks' or 'walked')")
+    st.write("We utilized various methods like CountVectorizer, n-grams, etc., to clean the data, resulting in a dataset suitable for modeling.")
+    st.write("See Raw Data Below")
 
     st.subheader("Raw Twitter data and label")
     if st.checkbox('Show raw data'):  # data is hidden if the box is unchecked

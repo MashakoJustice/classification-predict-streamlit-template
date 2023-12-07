@@ -10,7 +10,7 @@ from shared_layout import add_sidebar_image
 
 # Set custom Streamlit page configuration
 st.set_page_config(
-    page_title="Green Data Dynamics",
+    page_title="Logistic Regression Predict",
     page_icon=":seedling:",  # You can use emojis as icons
     layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
@@ -36,11 +36,11 @@ def main(selection):
     col2.markdown("<h1 style='color: green;'>Green Data Dynamics</h1>", unsafe_allow_html=True)
     col2.write("A Greener Tomorrow")
 
-    st.subheader("Climate Change Tweet Classification")
+    st.subheader("Lets Predict! Whats Your Sentiment On Climate Change?")
 
     # Building out the prediction page
     if selection == "Prediction":
-        st.info("Prediction with ML Models")
+        st.info("With Logistics Regression Model")
         # Creating a text box for user input
         tweet_text = st.text_area("Enter Text", "")
 
@@ -54,10 +54,10 @@ def main(selection):
 
             # Map numeric predictions to labels and colors
             prediction_labels = {
-                -1: "Anti Climate Change",
-                0: "Neutral Climate Change",
-                1: "Pro Climate Change",
-                2: "News On Climate Change"
+                -1: "Anti Climate Change \U0001F44D",
+                0: "Neutral Climate Change \U0001F937",
+                1: "Pro Climate Change \U0001F44D",
+                2: "News On Climate Change \U0001F4F0"
             }
 
             # Get the corresponding label from the mapping dictionary

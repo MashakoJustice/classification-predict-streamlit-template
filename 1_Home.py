@@ -14,7 +14,7 @@ train_df = pd.read_csv("https://raw.githubusercontent.com/MashakoJustice/Documen
 
 # Set custom Streamlit page configuration
 st.set_page_config(
-    page_title="Green Data Dynamics",
+    page_title="Green Data Dynamics Home",
     page_icon=":seedling:",  # You can use emojis as icons
     layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
@@ -124,3 +124,11 @@ st.markdown("[Climate Change Impact on Developing Countries | Linda Bouadjel-Zeb
 st.markdown("[A simple and smart way to fix climate change | Dan Miller | TEDxOrangeCoast](https://www.youtube.com/watch?v=0k2-SzlDGko)")
 st.markdown("[Climate Expert Says Man-Made Climate Change Narrative Is A LIE, Just A Scheme To Make Money](https://www.youtube.com/watch?v=CFlogpQRHfQ)")
 
+# Adding a message about contacting for more questions
+st.subheader("For More Information, See Next Page.")
+Information_link = "[Information Page](http://localhost:8501/Information)"  # Replace with the actual URL of your contacts page
+st.markdown(f"What Is This App About {Information_link} Find Out.")
+
+# Required to let Streamlit instantiate our web app.
+if __name__ == '__main__':
+    st.write("App is running.")

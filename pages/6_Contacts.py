@@ -5,7 +5,7 @@ from shared_layout import add_sidebar_image
 
 # Set custom Streamlit page configuration
 st.set_page_config(
-    page_title="Green Data Dynamics",
+    page_title="Contacts",
     page_icon=":seedling:",  # You can use emojis as icons
     layout="wide",  # Use "wide" for a wider layout
     initial_sidebar_state="auto",  # "expanded" or "collapsed"
