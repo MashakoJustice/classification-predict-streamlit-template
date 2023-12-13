@@ -59,6 +59,27 @@ def main():
         st.write(raw[['sentiment', 'message']])  # will write the df to the page
 
     # You can add more sections or functionality here
+    st.subheader("Class Description")
+
+    st.write("The tweets in the dataset are classified into the following categories based on their content:")
+
+    st.write("**2 News:** The tweet links to factual news about climate change")
+
+    st.write("**1 Pro:** The tweet supports the belief of man-made climate change")
+
+    st.write("**0 Neutral:** The tweet neither supports nor refutes the belief of man-made climate change")
+
+    st.write("**-1 Anti:** The tweet does not believe in man-made climate change")
+
+    st.subheader("Variable Definitions")
+
+    st.write("In the dataset, the following variables are present:")
+
+    st.write("- **sentiment:** The classification label indicating the stance on climate change (2 for News, 1 for Pro, 0 for Neutral, -1 for Anti)")
+
+    st.write("- **message:** The content of the tweet")
+
+    st.write("These labels and variables are crucial for understanding the context and sentiment of the tweets used for training and evaluating the climate change tweet classifier.")  
 
 # Required to let Streamlit instantiate our web app.
 if __name__ == '__main__':
